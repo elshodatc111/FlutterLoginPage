@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_apps/auth/login.dart';
+import 'package:my_apps/auth/resset.dart';
 import 'package:my_apps/auth/welcome.dart';
 import 'package:my_apps/auth/register.dart';
 import 'package:my_apps/home/home.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         'welcome':(context)=>const Welcome(),
         'login':(context)=>const Login(),
         'register':(context)=>const Register(),
+        'resset':(context)=>const Resset(),
         'profel':(context)=>const Profel(),
       },
       home: const Home(),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-class Register extends StatefulWidget {
-  const Register({super.key});
+class Resset extends StatefulWidget {
+  const Resset({super.key});
 
   @override
-  State<Register> createState() => _LoginState();
+  State<Resset> createState() => _LoginState();
 }
 
-class _LoginState extends State<Register> {
+class _LoginState extends State<Resset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +32,9 @@ class _LoginState extends State<Register> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.white,fontSize: 40),),
+                  Text("Parolni yangilash",style: TextStyle(color: Colors.white,fontSize: 40),),
                   SizedBox(height: 10,),
-                  Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.white,fontSize: 18),),
+                  Text("Telefon raqamingizni kiriting",style: TextStyle(color: Colors.white,fontSize: 18),),
                 ],
               ),
             ),
@@ -69,46 +69,7 @@ class _LoginState extends State<Register> {
                               ),
                               child: TextField(
                                 decoration: InputDecoration(
-                                  hintText: "Ismingiz",
-                                  hintStyle: TextStyle(color:Colors.grey),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey.shade200),),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Email",
-                                  hintStyle: TextStyle(color:Colors.grey),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey.shade200),),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Parol",
-                                  hintStyle: TextStyle(color:Colors.grey),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey.shade200),),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Parolni yangilash",
+                                  hintText: "Telefon raqam",
                                   hintStyle: TextStyle(color:Colors.grey),
                                   border: InputBorder.none,
                                 ),
@@ -125,13 +86,13 @@ class _LoginState extends State<Register> {
                           borderRadius: BorderRadius.circular(50),
                           color: Colors.blue.shade900,
                         ),
-                        child: Center(child: Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
+                        child: Center(child: Text("Parolni yangilash",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       TextButton(
-                        onPressed: () {Get.toNamed('home');},
+                        onPressed: () {Get.toNamed('login');},
                         child: Text(
                           "Orqaga",
                           style: TextStyle(color: Colors.grey),
