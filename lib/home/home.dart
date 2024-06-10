@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_apps/home/rgb.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,62 +20,63 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(child: Image.asset('assets/images/001.png'),              ),
-              SizedBox(height: 28),
+              SizedBox(height: Get.height*0.01),
               Text("Welcome",style: TextStyle(
-                color: Color(0xff2A2A2A),
+                color: RGB.bleakColor,
                 fontWeight: FontWeight.w700,
                 fontSize: 24,
               ),),
-              SizedBox(height: 16),
+              SizedBox(height: Get.height*0.01),
               Text('Have a better sharing experience',style: TextStyle(
-                color: Color(0xffA6A6A6),
+                color: RGB.greyColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 16,
               ),),
-              SizedBox(height: 40),
+              SizedBox(height: Get.height*0.05),
               ElevatedButton(
                 onPressed: () {
                   Get.toNamed('login');
                 },
                 child: Text(
                   'Kirish',
-                  style: TextStyle(color: Color(0xffffffff)),
+                  style: TextStyle(color: RGB.whiteColor),
                 ),
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(Get.width * 0.9, 50),
+                  fixedSize: Size(Get.width * 0.9, Get.height*0.07),
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                   elevation: 2,
-                  backgroundColor: Color(0xFFFEC400),
+                  backgroundColor: RGB.warningColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
                 ),
               ),
-              SizedBox(height: 28),
+              SizedBox(height: Get.height*0.03),
               ElevatedButton(
                 onPressed: () {Get.toNamed('register');},
                 child: Text(
                   'Ro\'yhatdan o\'tish',
-                  style: TextStyle(color: Color(0xFFFEC400)),
+                  style: TextStyle(color: RGB.warningColor),
                 ),
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(Get.width * 0.9, 50),
+                  fixedSize: Size(Get.width * 0.9,Get.height*0.07),
                   textStyle: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                   elevation: 2,
-                  backgroundColor: Color(0xFFffffff),
+                  backgroundColor: RGB.whiteColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
+                    side: BorderSide(color: RGB.warningColor),
                   ),
-                  side: BorderSide(color: Color(0xFFFEC400),width: 1),
+                  side: BorderSide(color: RGB.warningColor,width: 2),
                 ),
               ),
-              SizedBox(height: 28),
+              SizedBox(height: Get.height*0.05),
             ],
           ),
         ),

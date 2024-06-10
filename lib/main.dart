@@ -6,6 +6,7 @@ import 'package:my_apps/auth/welcome.dart';
 import 'package:my_apps/auth/register.dart';
 import 'package:my_apps/home/home.dart';
 import 'package:my_apps/profel/profel.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: GoogleFonts.montserrat().fontFamily,
+        textTheme: GoogleFonts.montserratTextTheme(),
+      ),
       routes: {
         'home':(context)=>const Home(),
         'welcome':(context)=>const Welcome(),

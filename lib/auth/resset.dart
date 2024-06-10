@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:my_apps/home/rgb.dart';
 class Resset extends StatefulWidget {
   const Resset({super.key});
 
@@ -13,92 +15,101 @@ class _LoginState extends State<Resset> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            colors: [
-              Colors.blue.shade900,
-              Colors.blue.shade800,
-              Colors.blue.shade400,
-            ],
-          ),
-        ),
+        color: RGB.whiteColor,
+        padding: EdgeInsets.only(top: Get.height * 0.03),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: 80,),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Parolni yangilash",style: TextStyle(color: Colors.white,fontSize: 40),),
-                  SizedBox(height: 10,),
-                  Text("Telefon raqamingizni kiriting",style: TextStyle(color: Colors.white,fontSize: 18),),
+          children: [
+            TextButton.icon(
+              onPressed: () {
+                Get.toNamed('login');
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: RGB.greyColor,
+              ),
+              icon: Icon(Icons.keyboard_arrow_left, color: RGB.greyColor),
+              label: Text("Orqaga"),
+            ),
+            SizedBox(height: 20,),
+            Center(
+              child: Text(
+                  "Tasdiqlash kodi yuborildi",
+                  style: TextStyle(
+                    color: RGB.bleakColor,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              width: Get.width*0.8,
+              margin: EdgeInsets.only(left: Get.width*0.1),
+              child: Text(
+                  "Tasdiqlash kodini kiriting.",
+                  style: TextStyle(
+                    color: RGB.greyColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              margin: EdgeInsets.only(left: Get.width*0.05,right: Get.width*0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ...[0,1,2,3,4].map((e){
+                    return Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: RGB.warningColor)
+                        ),
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: TextFormField(
+                          textAlign: TextAlign.center,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(1),
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "0",
+                            hintStyle: TextStyle(
+                              color: RGB.bleakColor,
+                            ),
+                          ),
+                          
+                        )
+                    );
+                  }),
                 ],
               ),
             ),
             SizedBox(height: 20,),
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60),),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.toNamed('resset');
+                },
+                child: Text(
+                  "Tasdiqlash",
+                  style: TextStyle(color: RGB.whiteColor),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 60,),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [BoxShadow(
-                              color: Color.fromRGBO(255, 95, 27, 0.3),
-                              blurRadius: 20,
-                              offset: Offset(0,10),
-                            )]
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Colors.grey.shade200),),
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Telefon raqam",
-                                  hintStyle: TextStyle(color:Colors.grey),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 40,),
-                      Container(
-                        height: 50,
-                        margin: EdgeInsets.symmetric(horizontal: 50),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.blue.shade900,
-                        ),
-                        child: Center(child: Text("Parolni yangilash",style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold),)),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextButton(
-                        onPressed: () {Get.toNamed('login');},
-                        child: Text(
-                          "Orqaga",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ),
-                    ],
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(Get.width * 0.9, Get.height*0.07),
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  elevation: 2,
+                  backgroundColor: RGB.warningColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
                   ),
                 ),
               ),
